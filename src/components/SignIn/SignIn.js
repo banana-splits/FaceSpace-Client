@@ -27,7 +27,10 @@ class SignIn extends Component {
     const { msgAlert, history, setUser } = this.props
 
     signIn(this.state)
-      .then(res => setUser(res.data.user))
+      .then(res => {
+        setUser(res.data.user)
+        console.log(res.data.user)
+      })
       .then(() => msgAlert({
         heading: 'Sign In Success',
         message: messages.signInSuccess,

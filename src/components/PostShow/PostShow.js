@@ -4,6 +4,8 @@ import Spinner from 'react-bootstrap/Spinner'
 import { withRouter, Redirect, Link } from 'react-router-dom'
 import { postShow, postDelete } from '../../api/posts'
 
+let id
+
 class PostShow extends Component {
   constructor (props) {
     super(props)
@@ -18,9 +20,15 @@ class PostShow extends Component {
   componentDidMount () {
     const { user, match, msgAlert } = this.props
 
+    if (match.params.id) {
+      id = match.params.id
+    } else {
+      id = this.props.id
+    }
+
     // make a request for a single post
-    console.log(match.params.id, user)
-    postShow(match.params.id, user)
+    // console.log('postshow mount', match.params, user)
+    postShow(id, user)
       // set the post state, to the post we got back in the response's data
       .then(res => this.setState({ post: res.data.post }))
       .then(() => msgAlert({
@@ -38,10 +46,10 @@ class PostShow extends Component {
   }
 
   handleDelete = event => {
-    const { user, msgAlert, match } = this.props
+    const { user, msgAlert } = this.props
 
     // make a delete axios request
-    postDelete(match.params.id, user)
+    postDelete(id, user)
       // set the deleted variable to true, to redirect to the posts page in render
       .then(() => this.setState({ deleted: true }))
       .then(() => msgAlert({
