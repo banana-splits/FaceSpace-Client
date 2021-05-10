@@ -1,48 +1,51 @@
 import React, { Component } from 'react'
 
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 
-import { movieIndex } from '../../api/movies'
+import { postIndex } from '../../api/posts.js'
+
+import PostShow from './PostShow/PostShow.js'
 
 import Spinner from 'react-bootstrap/Spinner'
 
-class MovieIndex extends Component {
+class PostIndex extends Component {
   constructor (props) {
     // this is a best practice
     // this sets `this.props` in the constructor
     super(props)
 
-    // keep track of all the movies we want to show, they will initially be null
+    // keep track of all the posts we want to show, they will initially be null
     this.state = {
-      movies: null
+      posts: null
     }
   }
 
-  // do this whenever MovieIndex is first shown on the page (mounted)
+  // do this whenever PostIndex is first shown on the page (mounted)
   componentDidMount () {
     const { user, msgAlert } = this.props
+    console.log(this.props)
 
-    // fetch all of the movies
-    movieIndex(user)
-      // set the movies state, to be the movies we got back from the response's data
-      .then(res => this.setState({ movies: res.data.movies }))
+    // fetch all of the posts
+    postIndex(user)
+      // set the posts state, to be the posts we got back from the response's data
+      .then(res => this.setState({ posts: res.data.posts }))
       .then(() => msgAlert({
-        heading: 'Successfully Got All Movies',
-        message: 'Movies are now being shown.',
+        heading: 'Successfully Got All Posts',
+        message: 'Posts are now being shown.',
         variant: 'success'
       }))
       .catch(error => msgAlert({
-        heading: 'Failed To Get All Movies',
-        message: 'Couldnt Get Movies Due to Error: ' + error.message,
+        heading: 'Failed To Get All Posts',
+        message: 'Couldnt Get Posts Due to Error: ' + error.message,
         variant: 'failure'
       }))
   }
 
   render () {
-    const { movies } = this.state
+    const { posts } = this.state
 
-    // if we haven't loaded any movies
-    if (!movies) {
+    // if we haven't loaded any posts
+    if (!posts) {
       // show a loading spinner
       return (
         <Spinner animation="border" role="status">
@@ -51,26 +54,21 @@ class MovieIndex extends Component {
       )
     }
 
-    // turn each movie into a link to that movie
-    const moviesJsx = movies.map(movie => (
-      <Link to={`/movies/${movie._id}`} key={movie._id}>
-        <li>
-          {movie.title} by {movie.director}
-        </li>
-      </Link>
+    // turn each post into a link to that post
+    const postsJsx = posts.map(post => (
+      <PostShow key={post._id}>
+      </PostShow>
     ))
 
     return (
       <div className="row">
         <div className="col-sm-10 col-md-8 mx-auto mt-5">
-          <h3>Movies</h3>
-          <ul>
-            {moviesJsx}
-          </ul>
+          <h2>All Posts</h2>
+          {postsJsx}
         </div>
       </div>
     )
   }
 }
 
-export default MovieIndex
+export default PostIndex
