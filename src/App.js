@@ -10,6 +10,7 @@ import SignIn from './components/SignIn/SignIn'
 import SignOut from './components/SignOut/SignOut'
 import ChangePassword from './components/ChangePassword/ChangePassword'
 import PostCreate from './components/PostCreate/PostCreate'
+import PostShow from './components/PostShow/PostShow'
 
 class App extends Component {
   constructor (props) {
@@ -69,6 +70,12 @@ class App extends Component {
           <AuthenticatedRoute user={user} path='/create' render={() => (
             <PostCreate msgAlert={this.msgAlert} user={user} />
           )} />
+
+          {/* Get a single post | show */}
+          <AuthenticatedRoute user={user} exact path='/posts/:id' render={() => (
+            <PostShow msgAlert={this.msgAlert} user={user} />
+          )} />
+
         </main>
       </Fragment>
     )
