@@ -21,7 +21,7 @@ export const postCreate = (post, user) => {
     // Add an authorization header
     headers: {
       // we need the user, so we have access to their token
-      'Authorization': `Token token=${user.token}`
+      'Authorization': `Bearer ${user.token}`
     },
     // send the post object as our data for creating a post
     data: { post }
