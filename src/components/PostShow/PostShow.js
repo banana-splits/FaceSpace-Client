@@ -19,6 +19,7 @@ class PostShow extends Component {
     const { user, match, msgAlert } = this.props
 
     // make a request for a single post
+    console.log(match.params.id, user)
     postShow(match.params.id, user)
       // set the post state, to the post we got back in the response's data
       .then(res => this.setState({ post: res.data.post }))

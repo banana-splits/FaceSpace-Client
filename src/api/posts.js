@@ -9,7 +9,7 @@ export const postIndex = user => {
     // Add an authorization header
     headers: {
       // we need the user, so we have access to their token
-      'Authorization': `Token token=${user.token}`
+      'Authorization': `Bearer ${user.token}`
     }
   })
 }
@@ -36,7 +36,7 @@ export const postShow = (id, user) => {
     // Add an authorization header
     headers: {
       // we need the user, so we have access to their token
-      'Authorization': `Token token=${user.token}`
+      'Authorization': `Bearer ${user.token}`
     }
   })
 }
@@ -48,7 +48,7 @@ export const postDelete = (id, user) => {
     // Add an authorization header
     headers: {
       // we need the user, so we have access to their token
-      'Authorization': `Token token=${user.token}`
+      'Authorization': `Bearer ${user.token}`
     }
   })
 }
@@ -58,7 +58,7 @@ export const postUpdate = (id, post, user) => {
     url: apiUrl + '/posts/' + id,
     method: 'PATCH',
     headers: {
-      'Authorization': `Token token=${user.token}`
+      'Authorization': `Bearer ${user.token}`
     },
     data: { post }
   })
