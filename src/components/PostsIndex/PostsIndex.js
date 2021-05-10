@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 
-// import { Link } from 'react-router-dom'
+import { withRouter } from 'react-router-dom'
 
 import { postIndex } from '../../api/posts.js'
 
-import PostShow from './PostShow/PostShow.js'
+import PostShow from '../PostShow/PostShow.js'
 
 import Spinner from 'react-bootstrap/Spinner'
 
@@ -43,6 +43,7 @@ class PostIndex extends Component {
 
   render () {
     const { posts } = this.state
+    const { user, msgAlert } = this.props
 
     // if we haven't loaded any posts
     if (!posts) {
@@ -56,7 +57,7 @@ class PostIndex extends Component {
 
     // turn each post into a link to that post
     const postsJsx = posts.map(post => (
-      <PostShow key={post._id}>
+      <PostShow key={post._id} user={user} id={post._id} msgAlert={msgAlert}>
       </PostShow>
     ))
 
@@ -71,4 +72,4 @@ class PostIndex extends Component {
   }
 }
 
-export default PostIndex
+export default withRouter(PostIndex)
