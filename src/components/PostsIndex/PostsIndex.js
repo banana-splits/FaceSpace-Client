@@ -1,3 +1,5 @@
+import './PostsIndex.scss'
+
 import React, { Component } from 'react'
 
 import { withRouter } from 'react-router-dom'
@@ -56,13 +58,15 @@ class PostIndex extends Component {
 
     // turn each post into a link to that post
     const postsJsx = posts.map(post => (
-      <PostShow key={post._id} user={user} id={post._id} msgAlert={msgAlert}>
-      </PostShow>
+      <div key={post._id} className="pl-4 post-div">
+        <PostShow key={post._id} user={user} id={post._id} msgAlert={msgAlert}>
+        </PostShow>
+      </div>
     ))
 
     return (
       <div className="row">
-        <div className="col-sm-10 col-md-8 mx-auto mt-5">
+        <div className="col-sm-12 col-md-10 mx-auto mt-5 px-4 posts-list">
           <h2>All Posts</h2>
           {postsJsx}
         </div>
