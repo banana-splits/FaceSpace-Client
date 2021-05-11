@@ -4,8 +4,6 @@ import { Redirect } from 'react-router-dom'
 
 import { postCreate } from '../../api/posts'
 
-// import Spinner from 'react-bootstrap/Spinner'
-
 class PostCreate extends Component {
   constructor (props) {
     super(props)
