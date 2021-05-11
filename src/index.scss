@@ -1,7 +1,31 @@
 $primary: #1ba322;
-$secondary: #9bf6ff;
+$secondary: #7a9e7e;
+$text-primary: #ffffff;
+$text-secondary: #000000;
 @import '~bootstrap/scss/bootstrap';
 
 .row {
   text-align: center;
+  color: $text-primary;
+}
+
+.link {
+  text-decoration: none;
+  color: $text-primary;
+  :hover {
+    text-decoration: none;
+    color: $text-primary;
+  }
+}
+
+.outerDiv {
+  background-color: $primary;
+  padding: 10px;
+  border-radius: 10px;
+  .innerDiv{
+    color: $text-secondary;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 10px;
+  }
 }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Spinner from 'react-bootstrap/Spinner'
+import Button from 'react-bootstrap/Button'
 // import withRouter so we have access to the match route prop
 import { withRouter, Redirect, Link } from 'react-router-dom'
 import { postShow, postDelete } from '../../api/posts'
@@ -88,10 +89,10 @@ class PostShow extends Component {
       <div>
         <h3>{post.ownerEmail}</h3>
         <p>{post.text}</p>
-        <button onClick={this.handleDelete}>Delete post</button>
-        <button>
-          <Link to={`/posts/${post._id}/update`}>Edit post</Link>
-        </button>
+        <Button onClick={this.handleDelete}>Delete post</Button>
+        <Button>
+          <Link className="link" to={`/posts/${post._id}/update`}>Edit post</Link>
+        </Button>
       </div>
     )
   }
