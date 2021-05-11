@@ -87,8 +87,9 @@ class PostShow extends Component {
     }
 
     return (
-      <div>
-        <h3>{post.text}</h3>
+      <div className="my-5">
+        <h3>{post.ownerEmail}</h3>
+        <p>{post.text}</p>
         <button onClick={this.handleDelete}>Delete post</button>
         <button>
           <Link to={`/posts/${post._id}/update`}>Edit post</Link>
