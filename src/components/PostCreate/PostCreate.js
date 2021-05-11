@@ -2,6 +2,10 @@ import React, { Component } from 'react'
 
 import { Redirect } from 'react-router-dom'
 
+// bootstrap imports
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
+
 import { postCreate } from '../../api/posts'
 
 class PostCreate extends Component {
@@ -70,17 +74,25 @@ render () {
     return <Redirect to={`/posts/${this.state.createdId}`} />
   }
   return (
-    <div>
-      <h2>Create New Post</h2>
-      <form onSubmit={this.handleSubmit}>
-        <input
-          placeholder='Enter post here'
-          name='text'
-          value={this.state.post.text}
-          onChange={this.handleChange}
-        />
-        <button type='submit'>Submit</button>
-      </form>
+    <div className="row">
+      <div className="col-sm-10 col-md-8 mx-auto mt-5">
+        <h3>Create New Post</h3>
+        <Form onSubmit={this.handleSubmit}>
+          <Form.Group controlId="email">
+            <Form.Control
+              name="text"
+              value={this.state.post.text}
+              placeholder="Enter post here"
+              onChange={this.handleChange}
+            />
+          </Form.Group>
+          <Button
+            variant="primary"
+            type="submit"
+          >  Submit
+          </Button>
+        </Form>
+      </div>
     </div>
   )
 }
