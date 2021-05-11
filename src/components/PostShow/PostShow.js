@@ -4,8 +4,6 @@ import Spinner from 'react-bootstrap/Spinner'
 import { withRouter, Redirect, Link } from 'react-router-dom'
 import { postShow, postDelete } from '../../api/posts'
 
-let id
-
 class PostShow extends Component {
   constructor (props) {
     super(props)
@@ -13,44 +11,40 @@ class PostShow extends Component {
     // initially our post state will be null, until it is fetched from the api
     this.state = {
       post: null,
-      deleted: false
+      deleted: false,
+      id: null
     }
+  }
+
+  show = () => {
+    const { user } = this.props
+    // make a request for a single post
+    // console.log('postshow mount', match.params, user)
+    postShow(this.state.id, user)
+      // set the post state, to the post we got back in the response's data
+      .then(res => this.setState({ post: res.data.post }))
   }
 
   componentDidMount () {
     // console.log('props', this.props)
-    const { user, match } = this.props
+    const { match } = this.props
 
     if (match.params.postId) {
-      id = match.params.postId
+      this.setState({ id: match.params.postId }, this.show)
     } else {
-      id = this.props.id
+      this.setState({ id: this.props.id }, this.show)
     }
-
-    // make a request for a single post
-    // console.log('postshow mount', match.params, user)
-    postShow(id, user)
-      // set the post state, to the post we got back in the response's data
-      .then(res => this.setState({ post: res.data.post }))
-      // .then(() => msgAlert({
-      //   heading: 'Showing post Successfully',
-      //   message: 'The post is now displayed.',
-      //   variant: 'success'
-      // }))
-      // .catch(error => {
-      //   msgAlert({
-      //     heading: 'Showing post Failed',
-      //     message: 'Failed to show post with error: ' + error.message,
-      //     variant: 'danger'
-      //   })
-      // })
   }
 
   handleDelete = event => {
+    // console.log('handleDelete')
+    // console.log('props: ', this.props)
+    // console.log('state: ', this.state)
     const { user, msgAlert } = this.props
 
     // make a delete axios request
-    postDelete(id, user)
+    // console.log('deleting id: ', id)
+    postDelete(this.state.id, user)
       // set the deleted variable to true, to redirect to the posts page in render
       .then(() => this.setState({ deleted: true }))
       .then(() => msgAlert({
@@ -68,6 +62,10 @@ class PostShow extends Component {
   }
 
   render () {
+    // console.log('render')
+    // console.log('props: ', this.props)
+    // console.log('state: ', this.state)
+    // console.log('id: ', id)
     const { post, deleted } = this.state
 
     // if we don't have a post yet
