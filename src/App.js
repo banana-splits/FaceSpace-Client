@@ -14,6 +14,7 @@ import PostShow from './components/PostShow/PostShow'
 import PostsIndex from './components/PostsIndex/PostsIndex'
 import PostUpdate from './components/PostUpdate/PostUpdate'
 import UserIndex from './components/UserIndex/UserIndex'
+import UserPostsIndex from './components/UserPostsIndex/UserPostsIndex'
 
 class App extends Component {
   constructor (props) {
@@ -75,7 +76,7 @@ class App extends Component {
           )} />
 
           {/* Get a single post | show */}
-          <AuthenticatedRoute user={user} exact path='/posts/:id' render={() => (
+          <AuthenticatedRoute user={user} exact path='/posts/:postId' render={() => (
             <PostShow msgAlert={this.msgAlert} user={user} />
           )} />
 
@@ -89,6 +90,10 @@ class App extends Component {
 
           <AuthenticatedRoute user={user} exact path='/users' render={() => (
             <UserIndex msgAlert={this.msgAlert} user={user} />
+          )} />
+
+          <AuthenticatedRoute user={user} exact path='/users/:userId' render={() => (
+            <UserPostsIndex msgAlert={this.msgAlert} user={user} />
           )} />
 
         </main>

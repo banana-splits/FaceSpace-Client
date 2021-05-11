@@ -63,3 +63,15 @@ export const postUpdate = (id, post, user) => {
     data: { post }
   })
 }
+
+export const userPostsIndex = (id, user) => {
+  return axios({
+    url: apiUrl + '/users/' + id,
+    method: 'GET',
+    // Add an authorization header
+    headers: {
+      // we need the user, so we have access to their token
+      'Authorization': `Bearer ${user.token}`
+    }
+  })
+}
