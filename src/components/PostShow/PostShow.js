@@ -18,10 +18,11 @@ class PostShow extends Component {
   }
 
   componentDidMount () {
+    // console.log('props', this.props)
     const { user, match, msgAlert } = this.props
 
-    if (match.params.id) {
-      id = match.params.id
+    if (match.params.postId) {
+      id = match.params.postId
     } else {
       id = this.props.id
     }
