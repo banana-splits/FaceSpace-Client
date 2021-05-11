@@ -41,6 +41,19 @@ export const postShow = (id, user) => {
   })
 }
 
+// UserPostIndex
+export const userPostShow = (id, user) => {
+  return axios({
+    url: apiUrl + '/users/' + id,
+    method: 'GET',
+    // Add an authorization header
+    headers: {
+      // we need the user, so we have access to their token
+      'Authorization': `Bearer ${user.token}`
+    }
+  })
+}
+
 export const postDelete = (id, user) => {
   return axios({
     url: apiUrl + '/posts/' + id,
