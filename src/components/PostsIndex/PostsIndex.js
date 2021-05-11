@@ -58,7 +58,7 @@ class PostIndex extends Component {
 
     // turn each post into a link to that post
     const postsJsx = posts.map(post => (
-      <div key={post._id} className="pl-4 post-div">
+      <div key={post._id} className="py-3 my-4 post-div">
         <PostShow key={post._id} user={user} id={post._id} msgAlert={msgAlert}>
         </PostShow>
       </div>
