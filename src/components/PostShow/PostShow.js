@@ -83,7 +83,7 @@ class PostShow extends Component {
     // if the post is deleted
     if (deleted) {
       // redirect to the posts index page
-      return <Redirect to="/posts" />
+      return <Redirect to="/" />
     }
 
     return (
