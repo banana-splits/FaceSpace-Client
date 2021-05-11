@@ -4,6 +4,9 @@ import { withRouter, Link } from 'react-router-dom'
 import { indexUsers } from '../../api/users'
 
 import Spinner from 'react-bootstrap/Spinner'
+import ListGroup from 'react-bootstrap/ListGroup'
+
+import './UserIndex.scss'
 
 class UserIndex extends Component {
   constructor (props) {
@@ -43,18 +46,18 @@ class UserIndex extends Component {
 
     const usersJsx = users.map(user => (
       <Link to={`/users/${user._id}`} key={user._id}>
-        <li>
+        <ListGroup.Item className='userIndexItem'>
           {user.email}
-        </li>
+        </ListGroup.Item>
       </Link>
     ))
     return (
       <div className="row">
-        <div className="col-sm-10 col-md-8 mx-auto mt-5">
+        <div className="col-s-10 col-s-8 mx-auto mt-5">
           <h3>Users</h3>
-          <ul>
+          <ListGroup className='userIndex'>
             {usersJsx}
-          </ul>
+          </ListGroup>
         </div>
       </div>
     )
