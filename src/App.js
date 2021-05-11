@@ -77,7 +77,7 @@ class App extends Component {
 
           {/* Get a single post | show */}
           <AuthenticatedRoute user={user} exact path='/posts/:postId' render={() => (
-            <PostShow msgAlert={this.msgAlert} user={user} />
+            <PostShow user={user} />
           )} />
 
           <AuthenticatedRoute user={user} exact path='/' render={() => (

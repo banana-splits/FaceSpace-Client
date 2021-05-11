@@ -19,7 +19,7 @@ class PostShow extends Component {
 
   componentDidMount () {
     // console.log('props', this.props)
-    const { user, match, msgAlert } = this.props
+    const { user, match } = this.props
 
     if (match.params.postId) {
       id = match.params.postId
@@ -32,18 +32,18 @@ class PostShow extends Component {
     postShow(id, user)
       // set the post state, to the post we got back in the response's data
       .then(res => this.setState({ post: res.data.post }))
-      .then(() => msgAlert({
-        heading: 'Showing post Successfully',
-        message: 'The post is now displayed.',
-        variant: 'success'
-      }))
-      .catch(error => {
-        msgAlert({
-          heading: 'Showing post Failed',
-          message: 'Failed to show post with error: ' + error.message,
-          variant: 'danger'
-        })
-      })
+      // .then(() => msgAlert({
+      //   heading: 'Showing post Successfully',
+      //   message: 'The post is now displayed.',
+      //   variant: 'success'
+      // }))
+      // .catch(error => {
+      //   msgAlert({
+      //     heading: 'Showing post Failed',
+      //     message: 'Failed to show post with error: ' + error.message,
+      //     variant: 'danger'
+      //   })
+      // })
   }
 
   handleDelete = event => {
@@ -83,11 +83,11 @@ class PostShow extends Component {
     // if the post is deleted
     if (deleted) {
       // redirect to the posts index page
-      return <Redirect to="/posts" />
+      return <Redirect to="/" />
     }
 
     return (
-      <div className="my-5">
+      <div>
         <h3>{post.ownerEmail}</h3>
         <p>{post.text}</p>
         <button onClick={this.handleDelete}>Delete post</button>

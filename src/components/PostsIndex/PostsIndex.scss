@@ -1,0 +1,13 @@
+$primary: #1ba322;
+$secondary: #9bf6ff;
+@import '~bootstrap/scss/bootstrap';
+
+.posts-list {
+  background-color: $primary;
+  border-radius: 3px;
+}
+
+.post-div {
+  background-color: $secondary;
+  border-radius: 20px;
+}
