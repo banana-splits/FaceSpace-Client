@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 
-import { Redirect } from 'react-router-dom'
+import { Redirect, withRouter } from 'react-router-dom'
 
-import { postCreate } from '../../api/posts'
+import { postUpdate } from '../../api/posts'
 
 // import Spinner from 'react-bootstrap/Spinner'
 
-class PostCreate extends Component {
+class PostUpdate extends Component {
   constructor (props) {
     super(props)
 
@@ -14,34 +14,34 @@ class PostCreate extends Component {
       // start our post state empty
       post: '',
       // createdId will be null until a post is created
-      createdId: null
+      updatedId: null
     }
   }
 
   handleSubmit = event => {
     event.preventDefault()
 
-    const { user, msgAlert } = this.props
+    const { user, msgAlert, match } = this.props
     const { post } = this.state
 
     // create a post, pass it the post data and the user for its token
-    postCreate(post, user)
+    postUpdate(match.params.id, post, user)
       // set the createdId to the id of the post we just created
       // .then(res => this.setState({ createdId: res.data.post._id }))
       .then(res => {
-        this.setState({ createdId: res.data.post._id })
+        this.setState({ updatedId: match.params.id })
         // pass the response to the next .then so we can show the title
         return res
       })
       .then(res => msgAlert({
-        heading: 'Created Post Successfully',
-        message: 'Post has been created successfully. Now viewing post.',
+        heading: 'Edited Post Successfully',
+        message: 'Post has been edited successfully. Now viewing post.',
         variant: 'success'
       }))
       .catch(error => {
         msgAlert({
-          heading: 'Failed to Create Post',
-          message: 'Could not create post with error: ' + error.message,
+          heading: 'Failed to edit Post',
+          message: 'Could not edit post with error: ' + error.message,
           variant: 'danger'
         })
       })
@@ -68,12 +68,12 @@ handleChange = event => {
 render () {
   // if we created the post successfully
   // then we'll redirect to the new post
-  if (this.state.createdId) {
-    return <Redirect to={`/posts/${this.state.createdId}`} />
+  if (this.state.updatedId) {
+    return <Redirect to={`/posts/${this.state.updatedId}`} />
   }
   return (
     <div>
-      <h2>Create New Post</h2>
+      <h2>Edit Post</h2>
       <form onSubmit={this.handleSubmit}>
         <input
           placeholder='Enter post here'
@@ -88,4 +88,4 @@ render () {
 }
 }
 
-export default PostCreate
+export default withRouter(PostUpdate)

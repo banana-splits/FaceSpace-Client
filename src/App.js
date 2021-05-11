@@ -12,6 +12,7 @@ import ChangePassword from './components/ChangePassword/ChangePassword'
 import PostCreate from './components/PostCreate/PostCreate'
 import PostShow from './components/PostShow/PostShow'
 import PostsIndex from './components/PostsIndex/PostsIndex'
+import PostUpdate from './components/PostUpdate/PostUpdate'
 
 class App extends Component {
   constructor (props) {
@@ -79,6 +80,10 @@ class App extends Component {
 
           <AuthenticatedRoute user={user} exact path='/' render={() => (
             <PostsIndex msgAlert={this.msgAlert} user={user} />
+          )} />
+
+          <AuthenticatedRoute user={user} exact path='/posts/:id/update' render={() => (
+            <PostUpdate msgAlert={this.msgAlert} user={user} />
           )} />
         </main>
       </Fragment>
