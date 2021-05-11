@@ -23,7 +23,6 @@ class PostIndex extends Component {
   // do this whenever PostIndex is first shown on the page (mounted)
   componentDidMount () {
     const { user, msgAlert } = this.props
-    console.log(this.props)
 
     // fetch all of the posts
     postIndex(user)

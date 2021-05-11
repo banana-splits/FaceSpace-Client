@@ -90,7 +90,7 @@ class PostShow extends Component {
         <h3>{post.text}</h3>
         <button onClick={this.handleDelete}>Delete post</button>
         <button>
-          <Link to={`/posts/${post._id}/edit`}>Update post</Link>
+          <Link to={`/posts/${post._id}/update`}>Edit post</Link>
         </button>
       </div>
     )
