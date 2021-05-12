@@ -72,7 +72,7 @@ render () {
   // if we created the comment successfully
   // then we'll redirect to the new comment
   if (this.state.createdId) {
-    return <Redirect to='/posts' />
+    return <Redirect to='/' />
   }
   return (
     <div>
