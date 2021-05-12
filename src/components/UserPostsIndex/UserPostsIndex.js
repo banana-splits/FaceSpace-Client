@@ -64,11 +64,9 @@ class PostIndex extends Component {
     ))
 
     return (
-      <div className="outer">
-        <div className="box">
-          <h2 className="title">User&apos;s Posts</h2>
-          {postsJsx}
-        </div>
+      <div className="box">
+        <h2 className="title">User&apos;s Posts</h2>
+        {postsJsx}
       </div>
     )
   }

@@ -13,6 +13,7 @@ $text-secondary: #000000;
 .row {
   text-align: center;
   color: $text-primary;
+  padding-bottom: 30px;
 }
 
 .outerDiv {
@@ -67,7 +68,9 @@ $text-secondary: #000000;
   display: flex;
   background-color: $primary;
   flex-direction: column;
-  margin-top: 40px;
+  margin-top: 30px;
+  padding-bottom: 30px;
+  margin-bottom: 30px;
   border-radius: 10px;
   justify-items: center;
   align-items: center;
@@ -93,5 +96,6 @@ $text-secondary: #000000;
   width: 95%;
   height: auto;
   color: $text-secondary;
-  margin-top: 15px;
+  margin-top: 10px;
+  padding: 10px;
 }
