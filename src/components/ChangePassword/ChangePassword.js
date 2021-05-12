@@ -77,6 +77,7 @@ class ChangePassword extends Component {
               <Button
                 variant="primary"
                 type="submit"
+                className="changePWD-btn"
               >
                 Submit
               </Button>

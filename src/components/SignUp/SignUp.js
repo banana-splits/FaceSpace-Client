@@ -91,6 +91,7 @@ class SignUp extends Component {
               <Button
                 variant="primary"
                 type="submit"
+                className="signUp-btn"
               >
                 Submit
               </Button>

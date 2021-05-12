@@ -57,16 +57,16 @@ class PostIndex extends Component {
     // turn each post into a link to that post
     // console.log('posts', posts)
     const postsJsx = posts.map(post => (
-      <PostShow key={post._id} user={user} id={post._id} msgAlert={msgAlert}>
-      </PostShow>
+      <div key={post._id} className="posts">
+        <PostShow key={post._id} user={user} id={post._id} msgAlert={msgAlert}>
+        </PostShow>
+      </div>
     ))
 
     return (
-      <div className="row">
-        <div className="col-sm-10 col-md-8 mx-auto mt-5">
-          <h2>User&apos;s Posts</h2>
-          {postsJsx}
-        </div>
+      <div className="box">
+        <h2 className="title">User&apos;s Posts</h2>
+        {postsJsx}
       </div>
     )
   }
