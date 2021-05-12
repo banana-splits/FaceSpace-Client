@@ -38,13 +38,9 @@ class PostShow extends Component {
   }
 
   handleDelete = event => {
-    // console.log('handleDelete')
-    // console.log('props: ', this.props)
-    // console.log('state: ', this.state)
     const { user, msgAlert } = this.props
 
     // make a delete axios request
-    // console.log('deleting id: ', id)
     postDelete(this.state.id, user)
       // set the deleted variable to true, to redirect to the posts page in render
       .then(() => this.setState({ deleted: true }))
@@ -63,10 +59,6 @@ class PostShow extends Component {
   }
 
   render () {
-    // console.log('render')
-    // console.log('props: ', this.props)
-    // console.log('state: ', this.state)
-    // console.log('id: ', id)
     const { post, deleted } = this.state
 
     // if we don't have a post yet
@@ -88,11 +80,15 @@ class PostShow extends Component {
     return (
       <div>
         <h3>{post.ownerEmail}</h3>
-        <p>{post.text}</p>
-        <Button className='btn' onClick={this.handleDelete}>Delete post</Button>
-        <Button className='btn'>
-          <Link className="link" to={`/posts/${post._id}/update`}>Edit post</Link>
-        </Button>
+        <p className="post-text">{post.text}</p>
+        {post.owner === this.props.user._id &&
+          <fragment>
+            <Button className='btn' onClick={this.handleDelete}>Delete post</Button>
+            <Button className='btn'>
+              <Link className="link" to={`/posts/${post._id}/update`}>Edit post</Link>
+            </Button>
+          </fragment>
+        }
       </div>
     )
   }
