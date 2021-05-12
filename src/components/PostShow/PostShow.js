@@ -89,8 +89,8 @@ class PostShow extends Component {
       <div>
         <h3>{post.ownerEmail}</h3>
         <p>{post.text}</p>
-        <Button onClick={this.handleDelete}>Delete post</Button>
-        <Button>
+        <Button className='btn' onClick={this.handleDelete}>Delete post</Button>
+        <Button className='btn'>
           <Link className="link" to={`/posts/${post._id}/update`}>Edit post</Link>
         </Button>
       </div>
