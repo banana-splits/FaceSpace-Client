@@ -5,6 +5,8 @@ import Button from 'react-bootstrap/Button'
 import { withRouter, Redirect, Link } from 'react-router-dom'
 import { postShow, postDelete } from '../../api/posts'
 
+import CommentCreate from '../CommentCreate/CommentCreate'
+
 class PostShow extends Component {
   constructor (props) {
     super(props)
@@ -60,6 +62,7 @@ class PostShow extends Component {
 
   render () {
     const { post, deleted } = this.state
+    const { user, msgAlert } = this.props
 
     // if we don't have a post yet
     if (!post) {
@@ -89,6 +92,12 @@ class PostShow extends Component {
             </Link>
           </fragment>
         }
+        <CommentCreate
+          key={post._id}
+          user={user}
+          msgAlert={msgAlert}
+          postId={post._id}
+        />
       </div>
     )
   }
