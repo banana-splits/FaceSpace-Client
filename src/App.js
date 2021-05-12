@@ -80,18 +80,22 @@ class App extends Component {
             <PostShow msgAlert={this.msgAlert} user={user} />
           )} />
 
-          <AuthenticatedRoute user={user} exact path='/' render={() => (
+          {/* View All posts | postIndex */}
+          <AuthenticatedRoute user={user} exact path='/home' render={() => (
             <PostsIndex msgAlert={this.msgAlert} user={user} />
           )} />
 
+          {/* Update single post | postUpdate */}
           <AuthenticatedRoute user={user} exact path='/posts/:id/update' render={() => (
             <PostUpdate msgAlert={this.msgAlert} user={user} />
           )} />
 
+          {/* View all users | userIndex */}
           <AuthenticatedRoute user={user} exact path='/users' render={() => (
             <UserIndex msgAlert={this.msgAlert} user={user} />
           )} />
 
+          {/* View single users all post | userPostIndex */}
           <AuthenticatedRoute user={user} exact path='/users/:userId' render={() => (
             <UserPostsIndex msgAlert={this.msgAlert} user={user} />
           )} />
