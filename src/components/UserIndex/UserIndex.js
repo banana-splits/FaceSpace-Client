@@ -6,8 +6,6 @@ import { indexUsers } from '../../api/users'
 import Spinner from 'react-bootstrap/Spinner'
 import ListGroup from 'react-bootstrap/ListGroup'
 
-import './UserIndex.scss'
-
 class UserIndex extends Component {
   constructor (props) {
     super(props)
@@ -46,16 +44,16 @@ class UserIndex extends Component {
 
     const usersJsx = users.map(user => (
       <Link to={`/users/${user._id}`} key={user._id}>
-        <ListGroup.Item className='userIndexItem'>
+        <ListGroup.Item className='innerDiv'>
           {user.email}
         </ListGroup.Item>
       </Link>
     ))
     return (
       <div className="row">
-        <div className="col-s-10 col-s-8 mx-auto mt-5">
+        <div className="col-sm-10 col-md-8 mx-auto mt-5 outerDiv">
           <h3>Users</h3>
-          <ListGroup className='userIndex'>
+          <ListGroup>
             {usersJsx}
           </ListGroup>
         </div>

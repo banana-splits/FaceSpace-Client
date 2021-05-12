@@ -75,22 +75,24 @@ render () {
   }
   return (
     <div className="row">
-      <div className="col-sm-10 col-md-8 mx-auto mt-5">
+      <div className="col-sm-10 col-md-8 mx-auto mt-5 outerDiv">
         <h3>Create New Post</h3>
         <Form onSubmit={this.handleSubmit}>
-          <Form.Group controlId="email">
-            <Form.Control
-              name="text"
-              value={this.state.post.text}
-              placeholder="Enter post here"
-              onChange={this.handleChange}
-            />
-          </Form.Group>
-          <Button
-            variant="primary"
-            type="submit"
-          >  Submit
-          </Button>
+          <div className='innerDiv'>
+            <Form.Group controlId="input">
+              <Form.Control
+                name="text"
+                value={this.state.post.text}
+                placeholder="Enter post here"
+                onChange={this.handleChange}
+              />
+            </Form.Group>
+            <Button
+              variant="primary"
+              type="submit"
+            >  Submit
+            </Button>
+          </div>
         </Form>
       </div>
     </div>

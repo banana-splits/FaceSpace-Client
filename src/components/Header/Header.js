@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
+import faceSpace from '../../images/facespace-logo.png'
 
 const authenticatedOptions = (
   <Fragment>
@@ -26,8 +27,8 @@ const alwaysOptions = (
 
 const Header = ({ user }) => (
   <Navbar bg="primary" variant="dark" expand="md">
-    <Navbar.Brand href="#">
-      react-auth-template
+    <Navbar.Brand href="#" className="nav-heading">
+      <img src={faceSpace}/>
     </Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">
