@@ -20,7 +20,7 @@ $text-secondary: #000000;
   background-color: $primary;
   padding: 10px;
   border-radius: 10px;
-  .innerDiv{
+  .innerDiv {
     color: $text-secondary;
     margin: 5px;
     padding: 5px;
@@ -106,29 +106,29 @@ $text-secondary: #000000;
   padding: 10px;
 }
 
-.showOne {
-  display: flex;
-  background-color: $primary;
-  flex-direction: column;
-  margin-top: 30px;
-  padding-bottom: 30px;
-  margin-bottom: 30px;
-  border-radius: 10px;
-  justify-items: center;
-  align-items: center;
-}
+// .showOne {
+//   display: flex;
+//   background-color: $primary;
+//   flex-direction: column;
+//   margin-top: 30px;
+//   padding-bottom: 30px;
+//   margin-bottom: 30px;
+//   border-radius: 10px;
+//   justify-items: center;
+//   align-items: center;
+// }
 
-.showBox {
-  display: flex;
-  flex-direction: column;
-  border-radius: 10px;
-  background-color: white;
-  color: $text-primary;
-  justify-content: center;
-  align-items: center;
-  width: 95%;
-  height: auto;
-  color: $text-secondary;
-  margin-top: 25px;
-  padding: 10px;
-}
+// .showBox {
+//   display: flex;
+//   flex-direction: column;
+//   border-radius: 10px;
+//   background-color: white;
+//   color: $text-primary;
+//   justify-content: center;
+//   align-items: center;
+//   width: 95%;
+//   height: auto;
+//   color: $text-secondary;
+//   margin-top: 25px;
+//   padding: 10px;
+// }
