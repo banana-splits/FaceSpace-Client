@@ -26,12 +26,12 @@ const alwaysOptions = (
 )
 
 const Header = ({ user }) => (
-  <Navbar bg="primary" variant="dark" expand="md">
-    <Navbar.Brand href="#" className="nav-heading col-md-4">
-      <img className='img-responsive' src={faceSpace}/>
+  <Navbar bg="primary" variant="dark" expand="md" className="navbar">
+    <Navbar.Brand href="#" className="nav-heading">
+      <img src={faceSpace} className="img-responsive logo"/>
     </Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
-    <Navbar.Collapse id="basic-navbar-nav col-md-8">
+    <Navbar.Collapse id="basic-navbar-nav">
       <Nav className="ml-auto">
         { user && <span className="navbar-text link-front mr-2">Welcome, {user.email}</span>}
         { alwaysOptions }
