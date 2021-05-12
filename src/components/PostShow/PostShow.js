@@ -84,9 +84,9 @@ class PostShow extends Component {
         {post.owner === this.props.user._id &&
           <fragment>
             <Button className='btn' onClick={this.handleDelete}>Delete post</Button>
-            <Button className='btn'>
-              <Link className="link" to={`/posts/${post._id}/update`}>Edit post</Link>
-            </Button>
+            <Link className="user-link" to={`/posts/${post._id}/update`}>
+              <Button className='btn'>Edit post</Button>
+            </Link>
           </fragment>
         }
       </div>

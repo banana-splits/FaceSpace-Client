@@ -48,6 +48,50 @@ $text-secondary: #000000;
 
 }
 
-.link {
-  font-size: 22px;
+.link-front {
+  font-size: 18px;
+}
+
+.create-btn,
+.signIn-btn {
+  border-color: white;
+}
+
+// .userPostIndex {
+//   background-color: $primary;
+//   padding: 10px;
+//   border-radius: 10px;
+// }
+
+.box {
+  display: flex;
+  background-color: $primary;
+  flex-direction: column;
+  margin-top: 40px;
+  border-radius: 10px;
+  justify-items: center;
+  align-items: center;
+}
+
+.title {
+  display: flex;
+  border-radius: 10px;
+  background-color: none;
+  color: $text-primary;
+  justify-content: center;
+  width: 100%;
+  color: $text-primary;
+  margin-top: 15px;
+}
+
+.posts {
+  display: flex;
+  border-radius: 10px;
+  background-color: white;
+  color: $text-primary;
+  justify-content: center;
+  width: 95%;
+  height: auto;
+  color: $text-secondary;
+  margin-top: 15px;
 }
