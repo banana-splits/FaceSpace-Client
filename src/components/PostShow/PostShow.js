@@ -84,6 +84,12 @@ class PostShow extends Component {
       <div>
         <h3>{post.ownerEmail}</h3>
         <p className="post-text">{post.text}</p>
+        <CommentCreate
+          key={post._id}
+          user={user}
+          msgAlert={msgAlert}
+          postId={post._id}
+        />
         {post.owner === this.props.user._id &&
           <fragment>
             <Button className='btn' onClick={this.handleDelete}>Delete post</Button>
@@ -92,12 +98,6 @@ class PostShow extends Component {
             </Link>
           </fragment>
         }
-        <CommentCreate
-          key={post._id}
-          user={user}
-          msgAlert={msgAlert}
-          postId={post._id}
-        />
       </div>
     )
   }
