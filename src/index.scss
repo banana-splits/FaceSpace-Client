@@ -10,17 +10,17 @@ $text-secondary: #000000;
   font-size: 35px;
 }
 
-.row {
+.row, .editbox {
   text-align: center;
   color: $text-primary;
   padding-bottom: 30px;
 }
 
-.outerDiv {
+.outerDiv, .editDiv {
   background-color: $primary;
   padding: 10px;
   border-radius: 10px;
-  .innerDiv {
+  .innerDiv, .editInnerDiv {
     color: $text-secondary;
     margin: 5px;
     padding: 5px;
@@ -60,7 +60,8 @@ $text-secondary: #000000;
 .create-btn,
 .signIn-btn,
 .signUp-btn,
-.changePWD-btn {
+.changePWD-btn,
+.uptbtn {
   border-color: white;
 }
 
@@ -81,6 +82,10 @@ $text-secondary: #000000;
   justify-items: center;
   align-items: center;
 }
+
+// .editColor {
+//   color: $text-primary;
+// }
 
 .title {
   display: flex;
@@ -105,6 +110,8 @@ $text-secondary: #000000;
   margin-top: 10px;
   padding: 10px;
 }
+
+
 
 // .showOne {
 //   display: flex;
@@ -132,3 +139,6 @@ $text-secondary: #000000;
 //   margin-top: 25px;
 //   padding: 10px;
 // }
+
+
+

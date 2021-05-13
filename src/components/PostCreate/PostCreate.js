@@ -71,7 +71,7 @@ render () {
   // if we created the post successfully
   // then we'll redirect to the new post
   if (this.state.createdId) {
-    return <Redirect to={`/posts/${this.state.createdId}`} />
+    return <Redirect to="/home" />
   }
   return (
     <div className="row">

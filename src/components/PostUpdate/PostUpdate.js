@@ -3,7 +3,8 @@ import React, { Component } from 'react'
 import { Redirect, withRouter } from 'react-router-dom'
 
 import { postUpdate } from '../../api/posts'
-
+import Button from 'react-bootstrap/Button'
+import { Form } from 'react-bootstrap'
 // import Spinner from 'react-bootstrap/Spinner'
 
 class PostUpdate extends Component {
@@ -69,20 +70,31 @@ render () {
   // if we created the post successfully
   // then we'll redirect to the new post
   if (this.state.updatedId) {
-    return <Redirect to={`/posts/${this.state.updatedId}`} />
+    return <Redirect to='/home' />
   }
   return (
-    <div>
-      <h2>Edit Post</h2>
-      <form onSubmit={this.handleSubmit}>
-        <input
-          placeholder='Enter post here'
-          name='text'
-          value={this.state.post.text}
-          onChange={this.handleChange}
-        />
-        <button type='submit'>Submit</button>
-      </form>
+    <div className="editbox">
+      <div className="col-sm-10 col-md-8 mx-auto mt-5 editDiv">
+        <h3>Edit Post</h3>
+        <Form onSubmit={this.handleSubmit}>
+          <div className='editInnerDiv'>
+            <Form.Group controlId="input">
+              <Form.Control
+                name="text"
+                value={this.state.post.text}
+                placeholder="Enter post here"
+                onChange={this.handleChange}
+              />
+            </Form.Group>
+            <Button
+              variant="primary"
+              type="submit"
+              className="uptbtn"
+            >  Edit Post
+            </Button>
+          </div>
+        </Form>
+      </div>
     </div>
   )
 }
