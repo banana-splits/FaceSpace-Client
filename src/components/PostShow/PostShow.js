@@ -78,18 +78,21 @@ class PostShow extends Component {
     }
 
     return (
-      <div>
-        <h3>{post.ownerEmail}</h3>
-        <p className="post-text">{post.text}</p>
-        {post.owner === this.props.user._id &&
-          <fragment>
-            <Button className='btn' onClick={this.handleDelete}>Delete post</Button>
-            <Link className="user-link" to={`/posts/${post._id}/update`}>
-              <Button className='btn'>Edit post</Button>
-            </Link>
-          </fragment>
-        }
+      <div className="showOne">
+        <div className="showBox">
+          <h3>{post.ownerEmail}</h3>
+          <p className="post-text">{post.text}</p>
+          {post.owner === this.props.user._id &&
+            <fragment>
+              <Button className='btn' onClick={this.handleDelete}>Delete post</Button>
+              <Link className="user-link" to={`/posts/${post._id}/update`}>
+                <Button className='btn'>Edit post</Button>
+              </Link>
+            </fragment>
+          }
+        </div>
       </div>
+
     )
   }
 }
